@@ -1,0 +1,27 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// My Coustem
+@import 'menu';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.box-no_data{
+  height:150px;line-height:150px;background-color:white;text-align:center;font-weight:300;font-size:30px;
+}
+.input-title{
+  font-size: 1.5rem;
+  color: $gray-dark;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}

@@ -1,0 +1,20 @@
+.navbar-dark .navbar-nav .show > .nav-link{
+    color: $gray-dark;
+    background-color: white;
+}
+.dropdown-menu{
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);
+    .dropdown-item{
+        padding-left: .5rem;
+        color: $gray-dark;
+        transition: background-color .3s ease-in-out, padding-left .4s ease-in-out, color .3s ease-in-out;
+        &:hover{
+            background-color: red;
+            padding-left: 1.5rem;
+            color: white;
+        }
+    }
+}
