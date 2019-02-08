@@ -34496,7 +34496,9 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-ClassicEditor.create(document.querySelector('#editor')).catch(function (error) {
+ClassicEditor.create(document.querySelector('#editor')).then(function (editor) {
+  editor.ui.view.editable.editableElement.style.height = '300px';
+}).catch(function (error) {
   console.error(error);
 }); // window.Vue = require('vue');
 

@@ -1,5 +1,9 @@
 <?php
 
+Route::get('/', function () {
+    return '<a href="/home">Go TO The Dashboard</a>';
+});
+
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('home');

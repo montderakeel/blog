@@ -9,14 +9,14 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="posts-dropdown" data-toggle="dropdown">Posts</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('post.index') }}">Show Posts</a>
+                    <a class="dropdown-item" href="{{ route('post.index') }}">List Posts</a>
                     <a href="{{ route('post.create') }}" class="dropdown-item">Create New</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="categories-dropdown" data-toggle="dropdown">Category</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('category.index') }}">Show Categories</a>
+                    <a class="dropdown-item" href="{{ route('category.index') }}">List Categories</a>
                     <a class="dropdown-item" href="{{ route('category.create') }}">Create New</a>
                 </div>
             </li>

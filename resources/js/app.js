@@ -9,6 +9,9 @@ require('./bootstrap');
 
 ClassicEditor
     .create( document.querySelector( '#editor', ) )
+    .then( editor => {
+        editor.ui.view.editable.editableElement.style.height = '300px'
+    })
     .catch( error => {
     console.error( error );
 } );

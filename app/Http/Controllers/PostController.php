@@ -38,15 +38,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'img' => 'image|max:2048'
+        ]);
+        if ($request->hasFile('img')) {
+            $img = $request->file('img')->store('public/posts');
+        } else{
+            $img = 'https://www.elegantthemes.com/blog/wp-content/uploads/2017/08/featuredimage.jpg';
+        }
+
         $post = new Post;
         $post->title    = $request['title'];
         $post->content  = $request['content'];
-        $post->img    = 'https://saudigamer.com/wp-content/uploads/2019/02/apex-featured-image-16x9.jpg.adapt_.crop191x100.1200w.jpg';
+        $post->img    = $img;
         $post->user_id  = \Auth::user()->id;
         $post->category_id = $request['category'];
 
         if ($post->save()) {
-            return redirect('post/create');
+            return redirect(route('post.index'));
         }
     }
 
@@ -87,7 +96,7 @@ class PostController extends Controller
         $post->category_id = $request['category_id'];
         $post->update();
 
-        return redirect('/post');
+        return redirect(route('post.create'));
     }
 
     /**

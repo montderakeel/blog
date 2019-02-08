@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <img class="img-fluid" src="{{ $post->img }}">
+                <img class="img-fluid" src="{{ asset($post->img) }}" alt="{{ $post->img }}">
                 <p class="my-4" style="line-height:2">{!! $post->content !!}</p>
             </div>
         </div>

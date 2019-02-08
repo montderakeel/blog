@@ -20,8 +20,11 @@
   height:150px;line-height:150px;background-color:white;text-align:center;font-weight:300;font-size:30px;
 }
 .input-title{
-  font-size: 1.5rem;
+  font-size: 20px;
   color: $gray-dark;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  border-radius: 0;
+  &:focus{
+    color: #333;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,.2);
+  }
 }
