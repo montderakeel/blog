@@ -39,18 +39,21 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'img' => 'image|max:2048'
+            'title' => 'required|min:10|max:99',
+            'content' => 'required',
+            'img' => 'required|image|max:2048'
         ]);
+
         if ($request->hasFile('img')) {
-            $img = $request->file('img')->store('public/posts');
-        } else{
-            $img = 'https://www.elegantthemes.com/blog/wp-content/uploads/2017/08/featuredimage.jpg';
+            $img = $request->img;
+
+            $img->store('public/posts');
         }
 
         $post = new Post;
         $post->title    = $request['title'];
         $post->content  = $request['content'];
-        $post->img    = $img;
+        $post->img    = $img->hashName();
         $post->user_id  = \Auth::user()->id;
         $post->category_id = $request['category'];
 
@@ -77,7 +80,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
-    {   
+    {
         $categories = \App\Category::all()->toArray();
         return view('post.edit')->withPost($post)->withCategories($categories);
     }
@@ -96,7 +99,7 @@ class PostController extends Controller
         $post->category_id = $request['category_id'];
         $post->update();
 
-        return redirect(route('post.create'));
+        return redirect()->back()->with('success', 'The post has been updated successflly');
     }
 
     /**

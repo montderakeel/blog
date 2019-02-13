@@ -12,16 +12,16 @@
     {{-- CKEditor --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
 
-    
+
 </head>
 <body>
-    
+
     {{-- Start Navbar --}}
     @include('layouts.navbar')
     <!-- End Navbar -->
 
     @yield('content')
-        
+
 
     {{-- STart Footer --}}
     <footer class="container-fluid">

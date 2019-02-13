@@ -23,7 +23,7 @@
 
     @forelse ($posts as $post)
         <div class="post p-2 bg-white" style="border-bottom:1px solid #eee;">
-            <div class="row justify-content-between">
+            <div class="row justify-content-between align-items-center">
                 <div class="col-md-5">{{ $post['title'] }}</div>
                 <div class="col-md-2"><i class="far fa-calendar-alt"></i> {{ $post->created_at->format('d M, Y') }}</div>
                 <div class="col-sm-2">
@@ -35,7 +35,7 @@
                     <form style="display:inline-block" action="{{ route('post.destroy', $post['id']) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>
+                        <button type="submit" class="btn btn-danjger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>
                     </form>
                 </div>
             </div>

@@ -38,6 +38,7 @@
                     @endauth
                 </a>
                 <div class="dropdown-menu" style="left:-100%;right:0">
+                    <a href="#" class="dropdown-item"><i class="fas fa-cogs"></i> Settings</a>
                     <a href="{{ route('logout') }}" 
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"

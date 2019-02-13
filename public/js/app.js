@@ -34496,7 +34496,21 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-ClassicEditor.create(document.querySelector('#editor')).then(function (editor) {
+$(document).ready(function () {
+  var previewFile = function previewFile() {
+    var preview = $('#img-preview');
+    var file = $('#file-preview').files[0];
+    var reader = new FileReader();
+    reader.addEventListener("load", function () {
+      preview.src = reader.result;
+    }, false);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+});
+ClassicEditor.create(document.querySelector('#editor'), {}).then(function (editor) {
   editor.ui.view.editable.editableElement.style.height = '300px';
 }).catch(function (error) {
   console.error(error);

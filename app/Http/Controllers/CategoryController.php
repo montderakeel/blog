@@ -25,7 +25,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        $categories = Category::all();
+        return view('category.create')->withCategories($categories);
     }
 
     /**
@@ -40,7 +41,7 @@ class CategoryController extends Controller
         $category->name = $request['name'];
         $category->save();
 
-        return redirect('category/create');
+        return redirect()->back()->with('success', 'category <strong>'. $request['name'] .'</strong> has been added successfully');
     }
 
     /**
@@ -63,7 +64,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('category.edit')->withCategory($category);
     }
 
     /**
@@ -75,7 +76,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->name = $request['name'];
+        $category->description = 'test';
+        $category->update();
+
+        return redirect()->back()->with('success', 'Category Has Been Updated');
     }
 
     /**
@@ -86,6 +91,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->destroy($category->id);
+        return redirect()->back()->with('success', 'category <strong>'. $category->name .'</strong> has been deleted successfully');
     }
 }

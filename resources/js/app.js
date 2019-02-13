@@ -7,8 +7,29 @@
 
 require('./bootstrap');
 
+
+$( document ).ready(function() {
+  var previewFile = function() {
+    var preview = $('#img-preview');
+    var file    = $('#file-preview').files[0];
+    var reader  = new FileReader();
+
+    reader.addEventListener("load", function () {
+      preview.src = reader.result;
+    }, false);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+});
+
+
+
 ClassicEditor
-    .create( document.querySelector( '#editor', ) )
+    .create( document.querySelector( '#editor'), {
+
+    })
     .then( editor => {
         editor.ui.view.editable.editableElement.style.height = '300px'
     })

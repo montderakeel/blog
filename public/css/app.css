@@ -10499,6 +10499,7 @@ a.text-dark:focus {
 .dropdown-menu {
   margin: 0;
   border: none;
+  min-width: 12rem;
   border-radius: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

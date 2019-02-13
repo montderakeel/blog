@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container-fluid">
+        @component('components.alert', ['type' => 'success'])
+            
+        @endcomponent
         <div class="card">
             <div class="card-body">
                 <form action="{{ route('post.update', ['id' => $post->id]) }}" method="POST">
@@ -26,9 +29,10 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea name="content" id="content" cols="10" rows="10" class="form-control">{{ $post->content }}</textarea>
+                        <textarea id="editor" name="content">{{ $post->content }}</textarea>
                     </div>
-                    <input type="submit" class="btn btn-success btn-sm">
+                    <input type="submit" class="btn btn-success btn-sm" value="Update">
+                    <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye fa-fw"></i> SHow This Post</a>
                 </form>
             </div>
         </div>
